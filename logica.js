@@ -473,7 +473,7 @@ function comprobarControles() {
 }
 
 function tieneRepetidos(teclas) {
-    let arrayLimpio = teclas.filter(elemento => elemento !== '');
+    let arrayLimpio = teclas.filter(elemento => elemento !== '' && elemento !== undefined);
     return new Set(arrayLimpio).size !== arrayLimpio.length;
 }
 
