@@ -1,3 +1,5 @@
+// TODO comentar cosas
+
 const cargarConfigJugadores = () => {
     let numJugadores = parseInt(document.getElementById("numJugadores").value);
     if (numJugadores > 2 || numJugadores < 0) throw new Error("Número de jugadores incorrecto.");
@@ -57,12 +59,7 @@ const cargarConfigJugadores = () => {
         let otroJugador = (i === 1 ? 2 : 1);
 
         opcionFlechas.onchange = () => {
-            botonTeclaAbajo.disabled = !botonTeclaAbajo.disabled;
-            botonTeclaAbajo.required = !botonTeclaAbajo.required;
-            botonTeclaAbajo.value = "";
-            botonTeclaArriba.disabled = !botonTeclaArriba.disabled;
-            botonTeclaArriba.required = !botonTeclaArriba.required;
-            botonTeclaArriba.value = "";
+            togglearControles()
 
             if (!(numJugadores === 2 && opcionRaton.disabled && document.getElementById("rueda"+otroJugador).checked)) {
                 opcionRaton.disabled = !opcionRaton.disabled;
@@ -75,12 +72,7 @@ const cargarConfigJugadores = () => {
         }
 
         opcionRaton.onchange = () => {
-            botonTeclaAbajo.disabled = !botonTeclaAbajo.disabled;
-            botonTeclaAbajo.required = !botonTeclaAbajo.required;
-            botonTeclaAbajo.value = "";
-            botonTeclaArriba.disabled = !botonTeclaArriba.disabled;
-            botonTeclaArriba.required = !botonTeclaArriba.required;
-            botonTeclaArriba.value = "";
+            togglearControles()
 
             if (!(numJugadores === 2 && opcionFlechas.disabled && document.getElementById("flecha"+otroJugador).checked)) {
                 opcionFlechas.disabled = !opcionFlechas.disabled;
@@ -90,6 +82,15 @@ const cargarConfigJugadores = () => {
                     console.warn("Que no va la rueda")
                 }
             }
+        }
+
+        function togglearControles() {
+            botonTeclaAbajo.disabled = !botonTeclaAbajo.disabled;
+            botonTeclaAbajo.required = !botonTeclaAbajo.required;
+            botonTeclaAbajo.value = "";
+            botonTeclaArriba.disabled = !botonTeclaArriba.disabled;
+            botonTeclaArriba.required = !botonTeclaArriba.required;
+            botonTeclaArriba.value = "";
         }
 
         contenedor.appendChild(labelRueda);
@@ -123,54 +124,53 @@ const cargarConfigJugadores = () => {
     }
 }
 
-var puntuaciones = [0,0];
-var nombres = [];
+let puntuaciones = [0,0];
+let nombres = [];
 
-var pelota;
-var rastro;
-var paleta1;
-var paleta2;
+let pelota;
+let rastro;
+let paleta1;
+let paleta2;
 
-var campoPartida;
+let campoPartida;
 
 const radioPelota = 25;
 
-var ball_movement;
-var rebotes;
+let ball_movement;
+let rebotes;
 
-var velocidadX = 5;
-var velocidadY = 5;
-var velocidadBasePaleta = 10;
-var velocidadPelotaMaxima = 20;
+let velocidadX = 5;
+let velocidadY = 5;
+let velocidadBasePaleta = 10;
+let velocidadPelotaMaxima = 20;
 
-var teclaArribaJ1;
-var teclaArribaJ2;
-var teclaAbajoJ1;
-var teclaAbajoJ2;
+let teclaArribaJ1;
+let teclaArribaJ2;
+let teclaAbajoJ1;
+let teclaAbajoJ2;
 
-var teclaPausa = "Escape";
+let teclaPausa = "Escape";
 
-var dificultad;
+let dificultad;
 
-var limitePuntos;
+let limitePuntos;
 
 
-var noSeHaChocado = true;
-var pausado = false;
+let noSeHaChocado = true;
+let pausado = false;
 
-var jugadorRaton = 0;
-var jugadorFlechas = 0;
+let jugadorRaton = 0;
 
-var jugadores;
-var estadoPartida = [false, false];
+let jugadores;
+let estadoPartida = [false, false];
 
-var keyState = {};
+let keyState = {};
 
-var sonidoPared = new Audio("./sfx/hitPared.wav");
-var sonidoJugador = new Audio("./sfx/hitJugador.wav");
-var sonidoPunto = new Audio("./sfx/marcar.wav");
+let sonidoPared = new Audio("./sfx/hitPared.wav");
+let sonidoJugador = new Audio("./sfx/hitJugador.wav");
+let sonidoPunto = new Audio("./sfx/marcar.wav");
 
-var muteado = false;
+let muteado = false;
 
 const reproducirAudio = (indice) => {
     if (!muteado){
@@ -275,7 +275,7 @@ function move_ball(){
     rastro.style.display = "block";
     pelota.style.top = (pelota.offsetTop + velocidadY) +"px";
     pelota.style.left = (pelota.offsetLeft + velocidadX) +"px";
-    var angulo = -Math.atan2(velocidadX, velocidadY);
+    let angulo = -Math.atan2(velocidadX, velocidadY);
 
     // Convertir el ángulo de radianes a grados y establecer la rotación
     rastro.style.transform = "rotate(" + (angulo * (180 / Math.PI) + 180) + "deg)";
