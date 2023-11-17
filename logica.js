@@ -446,16 +446,25 @@ const empezarPartida = () => {
 function comprobarControles() {
     let formulario = document.getElementById("form");
 
-    let teclaArriba1 = document.getElementById("teclaArriba1").value.toLowerCase();
-    let teclaAbajo1 = document.getElementById("teclaAbajo1").value.toLowerCase();
+    let teclaArriba1;
+    let teclaAbajo1;
     let teclaArriba2;
     let teclaAbajo2;
+
+    // En caso de que hayan 0 jugadores
     try{
-        teclaArriba2 = document.getElementById("teclaArriba2").value.toLowerCase();
-        teclaAbajo2 = document.getElementById("teclaAbajo2").value.toLowerCase();
-    } catch (e){
-        teclaArriba2 = '';
-        teclaAbajo2 = '';
+            teclaArriba1 = document.getElementById("teclaArriba1").value.toLowerCase();
+            teclaAbajo1 = document.getElementById("teclaAbajo1").value.toLowerCase();
+    } catch (e) {
+            teclaArriba1 = '';
+            teclaAbajo1 = '';
+        try {
+            teclaArriba2 = document.getElementById("teclaArriba2").value.toLowerCase();
+            teclaAbajo2 = document.getElementById("teclaAbajo2").value.toLowerCase();
+        } catch (e) {
+            teclaArriba2 = '';
+            teclaAbajo2 = '';
+        }
     }
     let algunControlRepetido = tieneRepetidos([teclaArriba1,teclaArriba2,teclaAbajo1,teclaAbajo2]);
     if (formulario.checkValidity() && !algunControlRepetido) empezarPartida();
