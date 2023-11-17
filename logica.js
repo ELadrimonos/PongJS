@@ -48,7 +48,7 @@ const cargarConfigJugadores = () => {
 
 
         let labelFlechas =    document.createElement("label");
-        labelFlechas.htmlFor = "flechas" + i;
+        labelFlechas.htmlFor = "flecha" + i;
         labelFlechas.innerText = "Usar Flechas Arriba/Abajo en Jugador " + i;
         let opcionFlechas = document.createElement("input");
         opcionFlechas.id = "flecha" + i;
