@@ -11,3 +11,4 @@ Proyecto de Pong en JavaScript básico.
 - Usar caracteres, flechas o la rueda del ratón para cada jugador. *No pueden haber controles repetidos entre jugadores*.
 - Activar/desactivar efectos de sonido
 - Cambiar la dificultad del juego (velocidad inicial de la pelota)
+- Cambiar idiomas entre español e inglés
