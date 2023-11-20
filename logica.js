@@ -12,7 +12,8 @@ const cargarConfigJugadores = () => {
         let contenedor = document.createElement("div");
         let label = document.createElement("label");
         label.htmlFor = "nombre" + i;
-        label.innerText = "Nombre Jugador " + i;
+        label.innerText = translations[currentLanguage]['labelNombreJugador'] + i;
+        label.dataset.i18n = "labelNombreJugador";
         let nombreJugador = document.createElement("input");
         nombreJugador.type = "text";
         nombreJugador.id = "nombre" + i;
@@ -21,7 +22,8 @@ const cargarConfigJugadores = () => {
 
         let labelArriba = document.createElement("label");
         labelArriba.htmlFor = "teclaArriba" + i;
-        labelArriba.innerText = "Tecla Arriba Jugador " + i;
+        labelArriba.innerText = translations[currentLanguage]['labelTeclaArriba'] + i;
+        labelArriba.dataset.i18n = "labelTeclaArriba";
         let botonTeclaArriba = document.createElement("input");
         botonTeclaArriba.type = "text";
         botonTeclaArriba.id = "teclaArriba" + i;
@@ -33,7 +35,8 @@ const cargarConfigJugadores = () => {
 
         let labelAbajo = document.createElement("label");
         labelAbajo.htmlFor = "teclaAbajo" + i;
-        labelAbajo.innerText = "Tecla Abajo Jugador " + i;
+        labelAbajo.innerText = translations[currentLanguage]['labelTeclaAbajo'] + i;
+        labelAbajo.dataset.i18n = "labelTeclaAbajo";
         let botonTeclaAbajo = document.createElement("input");
         botonTeclaAbajo.id = "teclaAbajo" + i;
         botonTeclaAbajo.maxLength = 1;
@@ -43,7 +46,8 @@ const cargarConfigJugadores = () => {
 
         let labelRueda =    document.createElement("label");
         labelRueda.htmlFor = "rueda" + i;
-        labelRueda.innerText = "Usar Rueda Raton en Jugador " + i;
+        labelRueda.innerText = translations[currentLanguage]['labelUsarRueda'] + i;
+        labelRueda.dataset.i18n = "labelUsarRueda";
         let opcionRaton = document.createElement("input");
         opcionRaton.id = "rueda" + i;
         opcionRaton.type = "checkbox";
@@ -51,7 +55,8 @@ const cargarConfigJugadores = () => {
 
         let labelFlechas =    document.createElement("label");
         labelFlechas.htmlFor = "flecha" + i;
-        labelFlechas.innerText = "Usar Flechas Arriba/Abajo en Jugador " + i;
+        labelFlechas.innerText = translations[currentLanguage]['labelUsarFlechas'] + i;
+        labelFlechas.dataset.i18n = "labelUsarFlechas";
         let opcionFlechas = document.createElement("input");
         opcionFlechas.id = "flecha" + i;
         opcionFlechas.type = "checkbox";
@@ -110,7 +115,8 @@ const cargarConfigJugadores = () => {
             let contenedorGuay = document.createElement("div");
             let labelLimitePuntos = document.createElement("label");
             labelLimitePuntos.htmlFor = "limitePuntos";
-            labelLimitePuntos.innerText = "Limite de puntuacion: ";
+            labelLimitePuntos.innerText = translations[currentLanguage]['labelLimitePuntos'];
+            labelLimitePuntos.dataset.i18n = "labelLimitePuntos";
             labelLimitePuntos.id = "labelLimite";
             let inputLimite = document.createElement("input");
             inputLimite.id = "limitePuntos";
@@ -450,8 +456,6 @@ function comprobarControles() {
     let teclaAbajo1;
     let teclaArriba2;
     let teclaAbajo2;
-
-    // En caso de que hayan 0 jugadores
     try{
             teclaArriba1 = document.getElementById("teclaArriba1").value.toLowerCase();
             teclaAbajo1 = document.getElementById("teclaAbajo1").value.toLowerCase();
@@ -466,6 +470,8 @@ function comprobarControles() {
             teclaAbajo2 = '';
         }
     }
+    let lista = [teclaArriba1,teclaArriba2,teclaAbajo1,teclaAbajo2];
+    console.log(lista)
     let algunControlRepetido = tieneRepetidos([teclaArriba1,teclaArriba2,teclaAbajo1,teclaAbajo2]);
     if (formulario.checkValidity() && !algunControlRepetido) empezarPartida();
     else alert("Hay algún control repetido.");

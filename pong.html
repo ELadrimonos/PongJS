@@ -5,9 +5,12 @@
     <title>PONG</title>
     <link href="estilos.css" type="text/css" rel="stylesheet">
     <script src="logica.js"></script>
+    <script src="traducciones.js"></script>
 </head>
 <body>
-
+<button id="flag" onclick="changeLanguage()">
+    <img id="imgflag" src="img/spanish.png" alt="bandera">
+</button>
 <section id="menu">
     <h1>
         <span>P</span>
@@ -19,19 +22,19 @@
     <div class="palaMenu"></div>
     <div class="pelotaMenu"></div>
     <form onsubmit="return comprobarNumJug();" id="formJug">
-        <label for="numJugadores">Numero de jugadores</label>
+        <label data-i18n="labelNumJugadores" for="numJugadores">Numero de jugadores</label>
         <input type="number" min="0" max="2" id="numJugadores" value="1" maxlength="1" title="Introduzca un valor entre 0 y 2">
-        <button onclick="cargarConfigJugadores()">Cargar</button>
+        <button onclick="cargarConfigJugadores()" data-i18n="buttonCargar">Cargar</button>
     </form>
 </section>
 
 <section id="configPartida">
-    <form onsubmit="return comprobarControles(); return false;" id="form">
-        <label for="audio">¿Activar audio?</label><input type="checkbox" id="audio" checked>
-        <label for="dificultad">Nivel de dificultad (1-10):</label><input type="number" id="dificultad" value="1" min="1" max="10" maxlength="2" required>
+    <form onsubmit="return comprobarControles();" id="form">
+        <label data-i18n="labelActivarAudio" for="audio">¿Activar audio?</label><input type="checkbox" id="audio" checked>
+        <label data-i18n="labelDificultad" for="dificultad">Nivel de dificultad (1-10):</label><input type="number" id="dificultad" value="1" min="1" max="10" maxlength="2" required>
         <div id="ajustesJugadores">
         </div>
-        <button>Empezar partida</button>
+        <button data-i18n="buttonEmpezarPartida">Empezar partida</button>
     </form>
 </section>
 

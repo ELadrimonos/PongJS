@@ -13,7 +13,7 @@ body{
     margin: 0;
     color: white;
     background: black;
-    font-family: Retro;
+    font-family: Retro, sans-serif;
     text-shadow: 2px 2px 0 #707070;
     cursor: url("./img/cursor.png"), auto;
 }
@@ -40,7 +40,7 @@ body{
 
 #ajustesJugadores > div{
     display: grid;
-    width: 15vw;
+    width: auto;
     padding: 20px;
     gap: 20px;
     align-items: center;
@@ -91,7 +91,7 @@ body{
     justify-content: space-evenly;
     background: black;
     color: white;
-    font-family: Upheaval;
+    font-family: Upheaval, sans-serif;
 }
 
 .datos h1, h2{
@@ -188,12 +188,12 @@ body{
 }
 
 input{
-    font-family: Retro;
+    font-family: Retro, sans-serif;
 }
 
 button{
     background: white;
-    font-family: Retro;
+    font-family: Retro, sans-serif;
     text-shadow: 1px 2px 0 #969696;
 }
 
@@ -270,7 +270,7 @@ input:disabled, input[type="checkbox"]:disabled{
 }
 
 h1{
-    font-family: Upheaval;
+    font-family: Upheaval, sans-serif;
 }
 
 /* Como he podido personalizar el checkbox */
@@ -385,4 +385,20 @@ input[type=number] {
 
 #menuPausa > button{
     font-size: 2.3em;
+}
+
+#flag{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 70px;
+}
+
+#flag > img{
+    width: 55px;
+    height: 45px;
+}
+
+#labelLimite{
+    margin-right: 20px;
 }
