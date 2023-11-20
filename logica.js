@@ -268,11 +268,11 @@ function pausarJuego() {
         ball_movement = setInterval(move_ball, 10);
         menuPausa.remove();
     }
-    botonContinuar.innerText = "Continuar";
+    botonContinuar.innerText = translations[currentLanguage]['labelContinuar'];
     menuPausa.appendChild(botonContinuar);
     let botonSalir = document.createElement("button");
     botonSalir.onclick = () => location.reload();
-    botonSalir.innerText = "Salir del juego";
+    botonSalir.innerText = translations[currentLanguage]['labelSalir'];
     menuPausa.appendChild(botonSalir);
     document.getElementById("partida").appendChild(menuPausa);
 }

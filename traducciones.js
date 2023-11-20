@@ -14,6 +14,8 @@ const translations = {
         'buttonCargar': 'Cargar',
         'buttonEmpezarPartida': 'Empezar partida',
         'labelLimitePuntos': 'Limite de puntuacion:',
+        'labelContinuar': 'Continuar',
+        'labelSalir': 'Salir',
     },
     'en': {
         'flag' : './img/english.jpg',
@@ -28,6 +30,8 @@ const translations = {
         'buttonCargar': 'Load',
         'buttonEmpezarPartida': 'Start Game',
         'labelLimitePuntos': 'Score Limit:',
+        'labelContinuar': 'Resume',
+        'labelSalir': 'Quit',
     },
 };
 
