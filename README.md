@@ -2,6 +2,8 @@
 
 Proyecto de Pong en JavaScript básico.
 
+[Jugar Online](https://eladrimonos.itch.io/pong)
+
 ## **Es posible:**
 - Jugar varios jugadores:
   1. 0 jugadores (IA avanzada)
